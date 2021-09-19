@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../PrologPlayground"
+		},
+		{
+			"name": ".leetcode",
+			"path": "../../.leetcode"
+		}
+	],
+	"settings": {
+		"python.pythonPath": "/usr/bin/python3"
+	}
+}
