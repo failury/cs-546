@@ -6,6 +6,10 @@ var errorCheck = function (array) {
         throw 'Empty array';
     }
 }
+function isLetter(str) {
+    //https://stackoverflow.com/a/9862788
+    return str.length === 1 && str.match(/[a-z]/i);
+  }
 // Given an array of arrays, you will return the rounded average value of all elements in the array(i.e use the Math.round method). 
 function average(arrays) {
 
@@ -64,24 +68,49 @@ function medianElement(array) {
     if (!array.every((e) => { return typeof e === 'number' })) {
         throw 'At least one element in a subarray is not a number';
     }
+
     let index = {}
-    array.forEach(e, i => {
-        index[e] = i;
+    array.forEach((e, i) => {
+        if (!(e in index)){
+            index[e] = i;
+        }
+        
     });
     let sorted = array.sort((a,b) => a - b);
     let mid = Math.floor(sorted.length / 2);
-    let medianval = sorted[mid];
-    for (const key in ) {
-        
+    let median,indexValue = 0;
+    if (sorted.length % 2 == 0) {
+        let first = sorted[mid - 1];
+        let second = sorted[mid];
+        median = (first + second) / 2.0;
+        indexValue = (index[first] > index[second]) ? index[first] : index[second];
+    }else{
+        median = sorted[mid];
+        indexValue = index[median];
     }
+    let res = {};
+    res[median] = indexValue;
+    return res;
 
 }
 // Given two arrays, you will return one sorted array. Each element can either be a number or a character. You will first sort alphabetically (lowercase to uppercase) and then numerically. 
 function merge(arrayOne, arrayTwo) {
-
+    errorCheck(arrayOne);
+    errorCheck(arrayTwo);
+    if (!arrayOne.every((e) => { return (typeof e === 'number') ||  isLetter(e)})) {
+        throw 'At least one element in a subarray is not a number';
+    }
+    let raw = arrayOne.concat(arrayTwo);
+    let numbers = raw.filter((e)=>{return typeof e === 'number'})
+    let lowercase = raw.filter((e)=>{return (typeof e === 'string') && (e == e.toLowerCase())});
+    let uppercase = raw.filter((e)=>{return (typeof e === 'string') && (e != e.toLowerCase())});
+    let res = lowercase.sort().concat(uppercase.sort()).concat(numbers.sort());
+    return res;
 }
 
 module.exports = {
     average,
-    modeSquared
+    modeSquared,
+    medianElement,
+    merge
 };
