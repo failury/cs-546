@@ -35,17 +35,53 @@ function sortString(string){
 // Given string and index, you will find the value from the string index, then you will replace any characters in the string that are the same as that value except for that string index value. You will grab the value before and after the index and those are the values that you will be alternating between when replacing the characters.   
 function replaceChar(string, idx) {
     errorCheck(string);
-    if (idx < 0 || idx > string.length() - 2){
+    if (idx < 1 || idx > string.length - 2){
         throw 'idx in not valid';
     }
     if (!(typeof idx === 'number')){
         throw 'invalid idx type';
     }
-    return null
+    let previous = string[idx - 1];
+    let next = string[idx + 1];
+    let isPrevious = true;
+    let res = Array.from(string);
+    for (let i = 0; i < res.length; i++) {
+        if(i != idx && res[i] == res[idx]){
+            if(isPrevious){
+                res[i] = previous;
+                isPrevious = false;
+            }else{
+                res[i] = next;
+                isPrevious = true;
+            }
+        }
+    }
+    return res.join("");
 }
 // Given string1 and string2 return the concatenation of the two strings, with alternating characters of both strings.  Note: If the strings are not the same length, you will pad the one that has less characters with the char parameter (you only use the 3rd parameter if string1 and string2 are not the same length:  For example: "Patrick" and "Hill", "Hill" has 3 characters less than "Patrick" so you would pad "Hill" with the character supplied as the 3rd char parameter
 function mashUp(string1, string2, char) {
-    return null
+    errorCheck(string1);
+    errorCheck(string2);
+    errorCheck(char);
+    string1 = Array.from(string1);
+    string2 = Array.from(string2);
+    let len1 = string1.length;
+    let len2 = string2.length;
+    if(len1 < len2){
+        for (let i = 0; i < len2 - len1; i++) {
+            string1.push(char);        
+        }
+    }else{
+        for (let i = 0; i <len1 - len2; i++) {
+            string2.push(char);        
+        }
+    }
+    let res = [];
+    for (let i = 0; i < string1.length; i++) {
+        res.push(string1[i]);
+        res.push(string2[i]);
+    }
+    return res.join("");
 }
 
 module.exports = {

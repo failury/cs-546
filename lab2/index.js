@@ -233,3 +233,101 @@ try {
 } catch (error) {
     console.error('sortString failed test case');
 }
+
+
+
+//SortString Tests
+try {
+    //should Pass
+    const replaceChar = stringUtils.replaceChar("farbarfoobar",1);// Returns : "farbfrfoobr"
+    console.log('replaceChar passed successfully');
+} catch (error) {
+    console.error('replaceChar failed test case');
+}
+try {
+    //should Pass
+    const replaceChar = stringUtils.replaceChar("DadDddddy",2);// Returns : "DadDaDaDy"
+    console.log('replaceChar passed successfully');
+} catch (error) {
+    console.error('replaceChar failed test case');
+}
+try {
+    //should failed
+    const replaceChar = stringUtils.replaceChar("foobar", 0); // Throws Error 
+    console.error('replaceChar did not error');
+} catch (error) {
+    console.error('replaceChar failed test case');
+}
+try {
+    //should failed
+    const replaceChar = stringUtils.replaceChar(""); // Throws Error
+    console.error('replaceChar did not error');
+} catch (error) {
+    console.error('replaceChar failed test case');
+}
+try {
+    //should failed
+    const replaceChar = stringUtils.replaceChar(123); // Throws Error
+    console.error('replaceChar did not error');
+} catch (error) {
+    console.error('replaceChar failed test case');
+}
+
+
+//MashUp Tests
+try {
+    //should Pass
+    const mashUp = stringUtils.mashUp("Patrick", "Hill", "$"); //Returns "PHaitlrli$c$k$"
+    console.log('mashUp passed successfully');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
+try {
+    //should Pass
+    const mashUp = stringUtils.mashUp("hello", "world", "#"); //Returns "hweolrllod"
+    console.log('mashUp passed successfully');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
+try {
+    //should Pass
+    const mashUp = stringUtils.mashUp("Hi", "There", "@"); //Returns "HTih@e@r@e" 
+    console.log('mashUp passed successfully');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
+try {
+    //should failed
+    const mashUp = stringUtils.mashUp("Patrick", ""); //Throws error
+    console.error('mashUp did not error');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
+try {
+    //should failed
+    const mashUp = stringUtils.mashUp(); // Throws Error
+    console.error('mashUp did not error');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
+try {
+    //should failed
+    const mashUp = stringUtils.mashUp("John") // Throws error
+    console.error('mashUp did not error');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
+try {
+    //should failed
+    const mashUp = stringUtils.mashUp ("h", "Hello", 4) // Throws Error
+    console.error('mashUp did not error');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
+try {
+    //should failed
+    const mashUp = stringUtils.mashUp ("h","e") // Throws Error
+    console.error('mashUp did not error');
+} catch (error) {
+    console.error('mashUp failed test case');
+}
