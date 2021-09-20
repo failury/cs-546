@@ -1,5 +1,6 @@
 const arrayUtils = require('./arrayUtils');
 const stringUtils = require('./stringUtils');
+const objUtils = require('./objUtils');
 // Average Tests
 try {
     //should Pass
@@ -331,3 +332,33 @@ try {
 } catch (error) {
     console.error('mashUp failed test case');
 }
+
+
+
+let first = { x: 2, y: 3};
+let second = { a: 70, x: 4, z: 5 };
+const emptyobj = {};
+//ComputeObjects Tests
+try {
+    //should Pass
+    const computeObjects = objUtils.computeObjects([first,second], x => x * 2);//{ x: 12, y: 6, a: 140, z: 10 }
+    console.log('computeObjects passed successfully');
+} catch (error) {
+    console.error('computeObjects failed test case');
+}
+try {
+    //should failed
+    const computeObjects = objUtils.computeObjects([first,emptyobj], x => x * 2);//Throws Error
+    console.error('computeObjects did not error');
+} catch (error) {
+    console.error('computeObjects failed test case');
+}
+
+
+first = {a: 2, b: 4};
+second = {a: 5, b: 4};
+const third = {a: 2, b: {x: 7}};
+const fourth = {a: 3, b: {x: 7, y: 10}};
+
+objUtils.commonKeys(first, second);
+objUtils.flipObject({ a: 3, b: 7, c: { x: 1 } });
