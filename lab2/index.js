@@ -1,5 +1,5 @@
 const arrayUtils = require('./arrayUtils');
-
+const stringUtils = require('./stringUtils');
 // Average Tests
 try {
     //should Pass
@@ -193,4 +193,43 @@ try {
     console.error('merge did not error');
 } catch (error) {
     console.error('merge failed test case');
+}
+
+
+
+//SortString Tests
+try {
+    //should Pass
+    const sortString = stringUtils.sortString('123 FOO BAR!'); // Returns: "ABFOOR!123  "
+    console.log('sortString passed successfully');
+} catch (error) {
+    console.error('sortString failed test case');
+}
+try {
+    //should failed
+    const sortString = stringUtils.sortString(); // Throws Error
+    console.error('sortString did not error');
+} catch (error) {
+    console.error('sortString failed test case');
+}
+try {
+    //should failed
+    const sortString = stringUtils.sortString(''); // Throws Error
+    console.error('sortString did not error');
+} catch (error) {
+    console.error('sortString failed test case');
+}
+try {
+    //should failed
+    const sortString = stringUtils.sortString(123); // Throws Error
+    console.error('sortString did not error');
+} catch (error) {
+    console.error('sortString failed test case');
+}
+try {
+    //should failed
+    const sortString = stringUtils.sortString(["Hello", "World"]); // Throws Error
+    console.error('sortString did not error');
+} catch (error) {
+    console.error('sortString failed test case');
 }
