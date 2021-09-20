@@ -362,3 +362,5 @@ const fourth = {a: 3, b: {x: 7, y: 10}};
 
 objUtils.commonKeys(first, second);
 objUtils.flipObject({ a: 3, b: 7, c: { x: 1 } });
+//objUtils.flipObject({a : 1, b: 2, c : [] });
+objUtils.flipObject({ a: 2, b: null });

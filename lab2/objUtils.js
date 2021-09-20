@@ -53,13 +53,16 @@ function commonKeys(obj1, obj2){
 // Given an object, you will return a new object where the values are now the keys and the keys are now the value. If a value has a type of array, for each element, you will have the element as the key and the value will be the original key. If a value has an object, you will flip those keys and values as well, but keep the key as the same.
 function flipObject(object) {
     if(!(typeof object === 'object') || isEmpty(object)){
-        throw 'error';
+        throw 'not a object or empty object';
     }
     let res = {};
     for (const k in object) {
         let newkey = object[k];
         if(Array.isArray(newkey)){
             //if value has a type of array
+            if (newkey.length == 0){
+                throw 'empty array';
+            }
             newkey.forEach(e => {
                 res[e] = k;
             });
