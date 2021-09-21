@@ -47,6 +47,9 @@ function commonKeys(obj1, obj2){
         if (element in obj2 && obj1[element] == obj2[element]){
             res[element] = obj1[element];
         }
+        if (element in obj2 && typeof obj1[element] === 'object' && typeof obj2[element] === 'object'){
+            res[element] = commonKeys(obj1[element],obj2[element]);
+        }
     });
     return res;
 }

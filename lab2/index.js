@@ -360,7 +360,86 @@ second = {a: 5, b: 4};
 const third = {a: 2, b: {x: 7}};
 const fourth = {a: 3, b: {x: 7, y: 10}};
 
-objUtils.commonKeys(first, second);
-objUtils.flipObject({ a: 3, b: 7, c: { x: 1 } });
-//objUtils.flipObject({a : 1, b: 2, c : [] });
-objUtils.flipObject({ a: 2, b: null });
+
+
+//CommonKeys Tests
+try {
+    //should Pass
+    const commonKeys = objUtils.commonKeys(first, second);// {b: 4}
+    console.log('commonKeys passed successfully');
+} catch (error) {
+    console.error('commonKeys failed test case');
+}
+try {
+    //should Pass
+    const commonKeys = objUtils.commonKeys(third, fourth); // {b: { x: 7}}
+    console.log('commonKeys passed successfully');
+} catch (error) {
+    console.error('commonKeys failed test case');
+}
+try {
+    //should Pass
+    const commonKeys = objUtils.commonKeys({}, {}); // {}}
+    console.log('commonKeys passed successfully');
+} catch (error) {
+    console.error('commonKeys failed test case');
+}
+try {
+    //should failed
+    const commonKeys = objUtils.commonKeys(1,2);//Throws Error
+    console.error('commonKeys did not error');
+} catch (error) {
+    console.error('commonKeys failed test case');
+}
+try {
+    //should failed
+    const commonKeys = objUtils.commonKeys({});//Throws Error
+    console.error('commonKeys did not error');
+} catch (error) {
+    console.error('commonKeys failed test case');
+}
+
+
+//FlipObject Tests
+try {
+    //should Pass
+    const flipObject = objUtils.flipObject({ a: 3, b: 7, c: 5 });
+    /* Returns:
+{
+  3: a,
+  7: b,
+  5: c
+}
+*/
+    console.log('flipObject passed successfully');
+} catch (error) {
+    console.error('flipObject failed test case');
+}
+try {
+    //should Pass
+    const flipObject = objUtils.flipObject({ a: 3, b: 7, c: { x: 1 } });
+    /* Returns:
+    {
+      3: a,
+      7: b,
+      c: {1: x}
+    }
+    */
+    console.log('flipObject passed successfully');
+} catch (error) {
+    console.error('flipObject failed test case');
+}
+try {
+    //should failed
+    const flipObject = objUtils.flipObject(1);//Throws Error
+    console.error('flipObject did not error');
+} catch (error) {
+    console.error('flipObject failed test case');
+}
+try {
+    //should failed
+    const flipObject = objUtils.flipObject({});//Throws Error
+    console.error('flipObject did not error');
+} catch (error) {
+    console.error('flipObject failed test case');
+}
