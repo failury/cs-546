@@ -49,6 +49,9 @@ async function sameStreet(streetName, streetSuffix) {
     return res;
 }
 async function manipulatSsn() {
+    if(arguments.length > 0){
+        throw 'should not provide any argument';
+    }
     let people = await getPeople();
     let objarray = [];
     let ssnarray = [];
@@ -109,6 +112,7 @@ async function sameBirthday(month, day) {
 
 module.exports = {
     getPeople,
+    errorCheck,
     getPersonById,
     sameStreet,
     manipulatSsn,
