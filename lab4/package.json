@@ -1,0 +1,14 @@
+{
+  "name": "cs-546-lab3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ruifeng Zhang 20007484",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.1.2"
+  }
+}

@@ -1,14 +1,14 @@
 let people = require('./people');
 let stocks = require('./stocks');
 async function main(){
-    // //people
-    // // getpersonbyid
-    // try{
-    //     const peopledata = await people.getPersonById("7989fa5e-8f3f-458d-ad58-23c8d9ef5a10");
-    //     console.log (peopledata);
-    // }catch(e){
-    //     console.log (e);
-    // }
+    //people
+    // getpersonbyid
+    try{
+        const peopledata = await people.getPersonById("7989fa5e-8f3f-458d-ad58-23c8d9ef5a10");
+        console.log (peopledata);
+    }catch(e){
+        console.log (e);
+    }
     // try{
     //     const peopledata = await people.getPersonById(-1);
     //     console.log (peopledata);
@@ -191,12 +191,12 @@ async function main(){
     //     console.log (e);
     // }
     //getStockById
-        try{
-        const stockdata = await stocks.getStockById("f652f797-7ca0-4382-befb-2ab8be914ff0");
-        console.log (stockdata);
-    }catch(e){
-        console.log (e);
-    }
+    //     try{
+    //     const stockdata = await stocks.getStockById("f652f797-7ca0-4382-befb-2ab8be914ff0");
+    //     console.log (stockdata);
+    // }catch(e){
+    //     console.log (e);
+    // }
 }
 
 //call main

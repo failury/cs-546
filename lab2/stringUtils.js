@@ -1,6 +1,6 @@
 
 var errorCheck = function (string) {
-    string = string. trim();
+    string = string.trim();
     if (!(typeof string === 'string')) {
         throw 'Input is not an string';
     }
