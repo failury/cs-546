@@ -80,7 +80,7 @@ async function remove(id) {
 async function update(id, name, location, phoneNumber, website, priceRange, cuisines, serviceOptions){
     let args = Array.prototype.slice.call(arguments);
     let parsedId = ObjectId(id);
-    if (args.length !== 7){throw 'Some of the inputs is not provided';}
+    if (args.length !== 8){throw 'Some of the inputs is not provided';}
     args.slice(0, 5).forEach(StringCheck);
     if (!phoneNumber.match(/^([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})$/)){throw 'invalid phone number';}
     let urlstart = 'http://www.';
@@ -104,14 +104,17 @@ async function update(id, name, location, phoneNumber, website, priceRange, cuis
         }
     }
     let resCollection = await restaurants();
+    let originalRes = await get(id);
+    let reviews = originalRes.reviews;
+    let overallRating = originalRes.overallRating;
     const updatedInfo = await resCollection.updateOne(
         { _id: parsedId },
-        { $set: { 'name': name, 'location': location, 'phoneNumber': phoneNumber, 'website': website, 'priceRange': priceRange, 'cuisines': cuisines, 'overallRating': 0, 'serviceOptions': serviceOptions } }
+        { $set: { 'name': name, 'location': location, 'phoneNumber': phoneNumber, 'website': website, 'priceRange': priceRange, 'cuisines': cuisines, 'overallRating': overallRating, 'serviceOptions': serviceOptions,'reviews':reviews } }
       );
       if (updatedInfo.modifiedCount === 0) {
         throw 'could not update restaurant successfully';
       }
-    return await this.getId(id);
+    return await this.get(id);
 }
 
 

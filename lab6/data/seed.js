@@ -1,5 +1,5 @@
 let res = require('./restaurants');
-let rev = require('./review');
+let rev = require('./reviews');
 let res1 = {};
 let res2 = {};
 let res3 = {};
