@@ -13,7 +13,7 @@ router.get('/:id', async(req,res)=>{
   });
 router.get('/', async (req, res) => {
     try {
-      const peopleList = await stocksdata.listShareholders();
+      const peopleList = await stocksdata.getStocks();
       res.json(peopleList);
     } catch (e) {
       res.status(500).send();

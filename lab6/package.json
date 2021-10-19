@@ -1,0 +1,17 @@
+{
+  "name": "cs-546-lab6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "seed": "node ./data/seed.js",
+    "start": "node app.js"
+    
+  },
+  "author": "Ruifeng Zhang 20007484",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.1.3"
+  }
+}
