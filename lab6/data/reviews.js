@@ -52,7 +52,7 @@ async function create(restaurantId, title, reviewer, rating, dateOfReview, revie
       if (updatedInfo.modifiedCount === 0) {
         throw 'could not create review successfully';
       }
-      CalOveralRating(parsedId);
+      await CalOveralRating(parsedId);
       let rest = await res.get(restaurantId);
       rest.reviews.forEach(element => {
         element._id = element._id.toString();
@@ -93,13 +93,13 @@ async function remove(reviewId){
     let resCollection = await restaurants();
     let restaurant =  await resCollection.findOne({reviews: {$elemMatch: {_id: parsedId}}},{ projection: { _id: 1, reviews: 0 }});
     if(restaurant == null){
-        throw 'cant not find review'
+        throw 'cant not find restaurant'
     }else{
         let updatedInfo = await resCollection.updateOne({ _id: restaurant._id }, { $pull: { reviews: { _id: parsedId } } })
         if (updatedInfo.modifiedCount === 0) {
             throw 'could not remove review';
         }
-        CalOveralRating(restaurant._id);
+        await CalOveralRating(restaurant._id);
     }
     
     

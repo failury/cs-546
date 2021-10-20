@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
   });
 router.post('/', async (req,res) =>{
     const resdata = req.body;
-    if (!resdata.name || !location.body || !resdata.phoneNumber || !resdata.website || !resdata.priceRange || !resdata.cuisines || !resdata.serviceOptions ) {
+    if (!resdata.name || !resdata.location || !resdata.phoneNumber || !resdata.website || !resdata.priceRange || !resdata.cuisines || !resdata.serviceOptions ) {
       res.status(400).json({ error: 'You must Supply All fields' });
       return;
     }
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
   }
   try {
     await restaurants.remove(req.params.id);
-    res.sendStatus(200);
+    res.json({"restaurantId": req.params.id, "deleted": true});
   } catch (e) {
     res.status(500).json({ error: e });
   }

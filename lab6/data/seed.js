@@ -47,25 +47,6 @@ async function main(){
     }catch(e){
         console.log (e);
     }
-
-
-    try{
-        const review = await rev.getAll(res3._id);
-        // console.log (review);
-    }catch(e){
-        console.log (e);
-    }
-    try{
-        const review = await rev.get(res2.reviews[0]._id);
-        // console.log (review);
-    }catch(e){
-        console.log (e);
-    }
-    try{
-        const review = await rev.remove(res2.reviews[0]._id);
-        // console.log (review);
-    }catch(e){
-        console.log (e);
-    }
+    process.exit(0);
 }
 main();
