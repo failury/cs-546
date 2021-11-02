@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{name}}</title>
+    <link rel="stylesheet" href="/public/site.css">
+</head>
+<body>
+
+    <main>
+        <div>
+    <h1 class="title">{{name}}</h1>
+    <img class="image" src="{{img}}" alt="image" >
+    <p class="paragraph">{{description}}</p>
+    <h2 class="smalltitle">Comics</h2>
+    <ul class="result">
+        {{#each comics}}
+        <li>
+            {{name}}
+        </li>
+        {{/each}}
+    </ul>
+</div>
+
+    </main>
+    <footer><a href="/">Make another search</a></footer>
+</body>
+</html>

@@ -13,7 +13,8 @@ var StringCheck = function (string) {
 }
 var isDate = function(input) {
     let date = new Date(input);
-    return ((date !== "Invalid Date") && !isNaN(date) && date.toDateString() === new Date().toDateString())
+    let match = input.match(/(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d/);
+    return ((date !== "Invalid Date") && !isNaN(date) && date.toDateString() === new Date().toDateString()) &&
 }
 async function CalOveralRating(restaurantId){
     //input is an Objectid
