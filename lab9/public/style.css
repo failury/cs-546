@@ -1,0 +1,93 @@
+header{
+    padding: 1%;
+    text-shadow: 0 1px 0 #ccc,
+    0 2px 0 #c9c9c9,
+    0 3px 0 #bbb,
+    0 4px 0 #b9b9b9,
+    0 5px 0 #aaa,
+    0 6px 1px rgba(0,0,0,.1),
+    0 0 5px rgba(0,0,0,.1),
+    0 1px 3px rgba(0,0,0,.3),
+    0 3px 5px rgba(0,0,0,.2),
+    0 5px 10px rgba(0,0,0,.25),
+    0 10px 10px rgba(0,0,0,.2),
+    0 20px 20px rgba(0,0,0,.15);
+}
+body{
+    padding-left: 2vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(43, 117, 187, 0.753);
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+
+.attempts-container{
+    min-height: 45vh;
+    max-height:45vh;
+    overflow-y:scroll;
+    width: 50vw;
+    background: #fff;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 15px;
+    padding: 2%;
+}
+
+.checker-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    border-radius: 15px;
+    padding: 2%;
+    height: 10vh;
+    width: 50vw;
+    background: #fff;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.checker-container label{
+    padding-bottom: 1%;
+    font-weight: bolder;
+}
+.checker-container div{
+    display: flex;
+    height: 90%;
+}
+#checker{
+    width: 90%;
+    height: 90%;
+    font-size: large;
+    resize: none;
+}
+
+.button{
+    height: 100%;
+	color: inherit;
+    background-color: aqua;
+	border: none;
+	padding: 0;
+    margin: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    border: 1px black solid;
+}
+.button:hover,
+.button:focus {
+  transform: scale(1.1);
+}
+
+.is-palindrome{
+    color: #0000FF;
+}
+.not-palindrome{
+    color: #FF0000;
+}
+
+footer{
+    color: #FFFFFF;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+
+}
